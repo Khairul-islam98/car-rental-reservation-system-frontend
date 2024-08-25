@@ -1,3 +1,8 @@
+const fontFamily = {
+  sans: ["Inter", "Arial", "sans-serif"],
+};
+
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -66,6 +71,9 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
