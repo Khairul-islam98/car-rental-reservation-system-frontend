@@ -47,6 +47,13 @@ const bookingApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["bookings"],
     }),
+    getAdminDashboardCount: builder.query({
+      query: () => ({
+        url: "/bookings/dashboard",
+        method: "GET",
+      }),
+      providesTags: ["bookings"],
+    }),
   }),
 });
 
@@ -57,4 +64,5 @@ export const {
   useGetMyBookingQuery,
   useUpdateMyBookingMutation,
   useDeleteMyBookingMutation,
+  useGetAdminDashboardCountQuery,
 } = bookingApi;

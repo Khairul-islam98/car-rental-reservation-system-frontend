@@ -1,0 +1,24 @@
+/* AdminOverview.css */
+.chart-section {
+    margin-top: 20px;
+  }
+  
+  .chart-container {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-header {
+    /* Add any specific styling for the header */
+  }
+  
+  .admin-main {
+    /* Add any specific styling for the main content */
+  }
+  
+  .admin-stat {
+    /* Add any specific styling for the stat cards */
+  }
+  

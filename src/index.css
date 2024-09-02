@@ -90,6 +90,13 @@
   transform: scale(1.5);
 }
 
+.status-badge {
+  @apply flex w-fit items-center gap-2 rounded-full px-4 py-2;
+}
+.admin-stat {
+  @apply flex w-full flex-col justify-between gap-5 sm:flex-row xl:gap-10;
+}
+
 
 @layer base {
   * {

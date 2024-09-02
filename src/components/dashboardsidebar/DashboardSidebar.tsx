@@ -156,7 +156,7 @@ const DashboardSidebar = () => {
               <SheetTitle className="mb-4 text-gray-600 text-center">
                 Welcome Car <span className="text-[#FEA633]">Rental</span> 😍
               </SheetTitle>
-              <p className="border-y-4 mt-2 size-10 rounded-full animate-bounce mx-auto border-[#FEA633] ..."></p>
+              <div className="border-y-4 mt-2 size-10 rounded-full animate-bounce mx-auto border-[#FEA633] ..."><ThemeMode onToggleTheme={handleThemeChange} /></div>
               <SheetTitle className="font-bold uppercase text-gray-600 text-center">
                 {user?.name}
               </SheetTitle>
