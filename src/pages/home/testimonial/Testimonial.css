@@ -1,0 +1,13 @@
+.slick-dots li button:before {
+    color: #888888; /* Change this to the desired inactive dot color */
+    opacity: 1; /* Ensures the color is applied */
+    font-size: 8px; /* Adjust size if needed */
+  }
+  
+  /* Active dot color */
+  .slick-dots li.slick-active button:before {
+    color: #fea633; /* Change this to the desired active dot color */
+    opacity: 1; /* Ensures the color is applied */
+    font-size: 12px; /* Adjust size if needed */
+  }
+  
