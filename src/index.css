@@ -77,6 +77,19 @@
   animation: wave 1.5s ease-in-out infinite;
   transform-origin: 70% 70%;
 }
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.magnifier {
+  transition: transform 0.3s ease;
+}
+
+.magnifier:hover {
+  transform: scale(1.5);
+}
+
 
 @layer base {
   * {

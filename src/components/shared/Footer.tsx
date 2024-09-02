@@ -7,11 +7,12 @@ import {
   FaTwitter,
   FaTwitch,
 } from "react-icons/fa";
+import logo from "../../assets/images/logo.png"
 
 const sections = [
   {
     title: "Contact",
-    items: ["Car Rentals", "Dhaka Bangladesh", "+8801800000000", "carrentals@info.com", { type: "image", src: {}, alt: "logo" }],
+    items: ["Car Rentals", "Dhaka Bangladesh", "+8801800000000", "carrentals@info.com", { type: "image", src: {logo}, alt: "logo" }],
   },
   {
     title: "Support",
@@ -44,7 +45,7 @@ const Footer = () => {
                   {typeof item === 'string' ? (
                     item
                   ) : item.type === 'image' ? (
-                    <img src="" alt={item.alt} className="max-w-9 bg-white rounded-full  lg:max-w-14" />
+                    <img src={logo} alt={item.alt} className="max-w-9 bg-white rounded-full  lg:max-w-14" />
                   ) : null}
                 </li>
               ))}
