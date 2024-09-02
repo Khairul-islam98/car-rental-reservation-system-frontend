@@ -62,7 +62,7 @@ const PaymentManagement = () => {
       ) : error ? (
         <p>Error fetching bookings.</p>
       ) : bookings.length === 0 ? (
-        <p>No pending bookings found.</p>
+        <p className="text-center text-red-500">No pending Payment found...</p>
       ) : (
         bookings.map((booking) => (
           <div key={booking._id} className="bg-white shadow-md rounded-lg p-4">

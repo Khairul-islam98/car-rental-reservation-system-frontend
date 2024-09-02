@@ -24,6 +24,21 @@ const userApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["users"],
     }),
+    updateProfile: builder.mutation({
+      query: ({ email, ...data }) => ({
+        url: `/users/profile/${email}`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["users"],
+    }),
+    getMyProfile: builder.query({
+      query: ({ email }) => ({
+        url: `/users/profile/${email}`,
+        method: "GET",
+      }),
+      providesTags: ["users"],
+    }),
   }),
 });
 
@@ -31,4 +46,6 @@ export const {
   useGetAllUserQuery,
   useGetUpdateUserMutation,
   useDeleteUserMutation,
+  useUpdateProfileMutation,
+  useGetMyProfileQuery,
 } = userApi;
