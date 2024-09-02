@@ -4,42 +4,47 @@ import { usePaymentMutation } from "@/redux/features/payment/paymentApi";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
+type Booking = {
+  _id: string;
+  car: { name: string; image: string };
+  user: { email: string };
+  totalCost: number;
+  payment: string;
+};
+
 const PaymentManagement = () => {
   const { data, error, isLoading: isFetching } = useGetMyBookingQuery({});
-  const [bookings, setBookings] = useState([]);
-  const [selectedBooking, setSelectedBooking] = useState(null); // State to hold selected booking for payment
-  const [showModal, setShowModal] = useState(false); // State to control modal visibility
+  const [bookings, setBookings] = useState<Booking[]>([]);
+  const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
+  const [showModal, setShowModal] = useState(false);
 
-  const [initiatePayment, { isLoading: isInitiatingPayment }] = usePaymentMutation(); // Hook to trigger payment initiation
+  const [initiatePayment, { isLoading: isInitiatingPayment }] = usePaymentMutation();
 
   useEffect(() => {
     if (data) {
       const filterMyBookings = data.data?.filter(
-        (booking) => booking.payment === "pending"
+        (booking: Booking) => booking.payment === "pending"
       );
-      setBookings(filterMyBookings);
+      setBookings(filterMyBookings || []);
     }
   }, [data]);
 
-  // Function to handle payment
-  const handlePayment = (booking) => {
+  const handlePayment = (booking: Booking) => {
     setSelectedBooking(booking);
-    setShowModal(true); // Show the modal with summary details
+    setShowModal(true);
   };
 
-  // Function to initialize payment
   const initializePayment = async () => {
     if (!selectedBooking) return;
 
     try {
       const response = await initiatePayment({
         bookingId: selectedBooking._id,
-        email: selectedBooking.user.email, // Adjust as per your data model
+        email: selectedBooking.user.email,
         cost: selectedBooking.totalCost,
       }).unwrap();
 
       if (response.success && response.paymentUrl) {
-        // Redirect to the AmarPay payment URL
         window.location.href = response.paymentUrl;
       } else {
         toast.error("Failed to initiate payment. Please try again.");
@@ -62,9 +67,9 @@ const PaymentManagement = () => {
         bookings.map((booking) => (
           <div key={booking._id} className="bg-white shadow-md rounded-lg p-4">
             <img
-              src={booking.car.image}
+              src={booking.car?.image}
               className="w-32 h-32 mx-auto object-cover"
-              alt={booking.car.name}
+              alt={booking.car?.name || "Car"}
             />
             <h3 className="text-lg font-semibold mb-2">{booking.car?.name}</h3>
             <p className="text-gray-600 mb-1">Total Cost: ${booking.totalCost}</p>
@@ -80,9 +85,12 @@ const PaymentManagement = () => {
         ))
       )}
 
-      {/* Modal for payment summary */}
       {showModal && selectedBooking && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50"
+          role="dialog"
+          aria-modal="true"
+        >
           <div className="bg-white p-6 rounded-lg shadow-lg text-center">
             <h3 className="text-xl font-semibold mb-4">Payment Summary</h3>
             <p className="text-gray-600 mb-2">Car: {selectedBooking.car?.name}</p>

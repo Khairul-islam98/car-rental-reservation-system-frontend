@@ -27,6 +27,7 @@ import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { useGetAllCarsQuery } from "@/redux/features/cars/carApi";
 import SearchCard from "./SearchCard";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [date, setDate] = useState<Date>();
@@ -73,9 +74,11 @@ const Hero = () => {
               luxurious convertible, we offer a diverse fleet to match your
               needs and elevate your driving experience.
             </p>
+            <Link to='/booking'>
             <Button className="mt-2 cursor-pointer bg-[#FEA633] text-white relative h-[48px] overflow-hidden border shadow-2xl transition-all before:absolute before:left-0 before:right-0 before:top-0 before:h-0 before:w-full before:bg-gray-600 before:duration-500 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0 after:w-full after:bg-gray-600 after:duration-500 hover:shadow-gray-600 hover:before:h-2/4 hover:after:h-2/4 hover:text-white font-bold text-2xl">
               <span className=" relative z-10">Book Now →</span>
             </Button>
+            </Link>
           </div>
 
           {/* Car Image */}

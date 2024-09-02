@@ -1,4 +1,3 @@
-import React from "react";
 import { FaClock, FaEnvelope, FaMapMarker, FaPhone } from "react-icons/fa";
 import contactImg from "../../assets/images/contact.png";
 import { Label } from "@/components/ui/label";

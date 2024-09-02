@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FaHandshake, FaLeaf, FaUserShield, FaChartLine, FaRecycle, FaHandsHelping } from 'react-icons/fa';
 
 const Commitment = () => {

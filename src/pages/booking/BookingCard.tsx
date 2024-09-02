@@ -38,7 +38,7 @@ const BookingCard = ({ car }: { car: ICar }) => {
             disabled={car.status === "unavailable"}
             aria-label="Book Now"
           >
-          <Link to={`/car-details/${car?._id}`}>
+          <Link to={`/booking-form/${car?._id}`}>
             Book Now
           </Link>
           </Button>

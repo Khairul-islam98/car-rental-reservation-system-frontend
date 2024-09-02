@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Button } from "@/components/ui/button";
 import { useCreateBookingMutation } from "@/redux/features/booking/bookingApi";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -19,7 +20,7 @@ const ConfirmBooking = () => {
       try {
         const result = await createBooking({ ...bookingDetails, date, startTime }).unwrap(); 
         console.log("Booking Confirmed:", result);
-        // navigate("/success"); 
+        navigate("/success"); 
       } catch (err) {
         console.error("Error confirming booking:", err); 
       }
@@ -82,6 +83,7 @@ const ConfirmBooking = () => {
         </div>
 
         {/* Show error message if there's an error */}
+        {/* @ts-ignore */}
         {isError && <p className="text-red-500">Error: {error?.message}</p>}
 
         <div className="flex justify-between mt-6">
