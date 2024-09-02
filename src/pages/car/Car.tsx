@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import CarCard from "./carcard/CarCard";
-import CarFilter from "./carfillter/CarFilter";
 import { useGetAllCarsQuery } from "@/redux/features/cars/carApi";
 import Loader from "@/components/Loader";
+import CarFilter from "./carfillter/CarFilter";
 
 interface QueryParams {
     search?: string;
@@ -49,7 +49,7 @@ const Car = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters Section */}
           <div className="lg:w-1/4">
-            <CarFilter  setQueryParams={setQueryParams} queryParams={queryParams} />
+            <CarFilter setQueryParams={setQueryParams} queryParams={queryParams} />
           </div>
 
           {/* Cars Listing Section */}

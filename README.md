@@ -1,30 +1,66 @@
-# React + TypeScript + Vite
+# Car-Rental-Services Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a sample implementation of a Car Rent service application using Typescript, React, Redux, Node.js, Express, and MongoDB.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Link
 
-## Expanding the ESLint configuration
+https://car-rentals-services.netlify.app/
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+
+
+## Features
+
+- user-friendly and visualy appealing interfaces
+- home page with hero-section, featured, testimonials, 
+- dashboard page admin/user all page and information
+- car list page user can filter car location car type etc
+- car details page car full information and review
+- booking form page with user full details add
+- about us page with contact info, map, social media link, mission statement, team members
+
+---
+
+## Technologies Used
+
+- React
+- Redux
+- React router
+- Typescript
+- Tailwind css
+- shadcn
+
+---
+
+# How to run the application locally
+
+1. Clone the repository
+
+```
+https://github.com/Khairul-islam98/car-rental-reservation-system-frontend.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Project open
+
+```
+cd car-rental-reservation-system-frontend
+
+```
+
+3. install the required packages
+
+```
+npm i
+```
+
+
+
+4. Run the Application locally
+
+```
+npm run dev
+```

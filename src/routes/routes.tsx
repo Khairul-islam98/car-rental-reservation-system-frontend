@@ -22,11 +22,14 @@ import BookingForm from "@/pages/bookingform/BookingForm";
 import ConfirmBooking from "@/pages/confirmation/ConfirmBooking";
 import PaymentManagement from "@/pages/dashboard/users/paymentmanagement/PaymentManagement";
 import Success from "@/pages/success/Success";
+import ProtectedRoute from "@/components/ProtectedRoute";
+import ErrorPage from "@/components/ErrorPage";
 
 const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -42,15 +45,15 @@ const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
       },
       {
         path: "/booking",
-        element: <Booking />,
+        element: <ProtectedRoute role=""><Booking /></ProtectedRoute>,
       },
       {
         path: "/booking-form/:id",
-        element: <BookingForm />,
+        element: <ProtectedRoute role=""><BookingForm /></ProtectedRoute>,
       },
       {
         path: "/confirm-booking",
-        element: <ConfirmBooking />,
+        element: <ProtectedRoute role=""><ConfirmBooking /></ProtectedRoute>,
       },
       {
         path: "/cars",
@@ -58,11 +61,11 @@ const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
       },
       {
         path: "/car-details/:id",
-        element: <CarDetails />,
+        element: <ProtectedRoute role=""><CarDetails /></ProtectedRoute>,
       },
       {
         path: "/success",
-        element: <Success  />,
+        element: <ProtectedRoute role=""><Success  /></ProtectedRoute>,
       },
       {
         path: "/login",
@@ -85,46 +88,46 @@ const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminDashboard />,
+    element: <ProtectedRoute role="admin"><AdminDashboard /></ProtectedRoute>,
     children: [
       {
         path: "dashboard",
-        element: <Dashboard />,
+        element: <ProtectedRoute role="admin"><Dashboard /></ProtectedRoute>,
       },
       {
         path: "manage-cars",
-        element: <ManageCar />,
+        element: <ProtectedRoute role="admin"><ManageCar /></ProtectedRoute>,
       },
       {
         path: "manage-bookings",
-        element: <ManageBooking />,
+        element: <ProtectedRoute role="admin"><ManageBooking /></ProtectedRoute>,
       },
       {
         path: "manage-return-cars",
-        element: <ManageReturnCar />,
+        element: <ProtectedRoute role="admin"><ManageReturnCar /></ProtectedRoute>,
       },
       {
         path: "manage-users",
-        element: <UserManagement />,
+        element: <ProtectedRoute role="admin"><UserManagement /></ProtectedRoute>,
       },
     ],
   },
   {
     path: "/user",
-    element: <UserDashboard />,
+    element: <ProtectedRoute role="user"><UserDashboard /></ProtectedRoute>,
     children: [
       {
         path: "dashboard",
-        element: <Dashboard />,
+        element: <ProtectedRoute role="user"><Dashboard /></ProtectedRoute>,
       },
       {
         path: "booking-management",
-        element: <BookingManagement />
+        element: <ProtectedRoute role="user"><BookingManagement /></ProtectedRoute>,
 
       },
       {
         path: "payment-management",
-        element: <PaymentManagement  />
+        element: <ProtectedRoute role="user"><PaymentManagement  /></ProtectedRoute>
 
       }
     ]
