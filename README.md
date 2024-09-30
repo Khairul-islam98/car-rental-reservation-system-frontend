@@ -36,6 +36,12 @@ https://car-rentals-services.netlify.app/
 
 ---
 
+# Admin Credentials
+```
+admin email: janeyrahman900@gmail.com
+admin password: 123456
+```
+
 # How to run the application locally
 
 1. Clone the repository
